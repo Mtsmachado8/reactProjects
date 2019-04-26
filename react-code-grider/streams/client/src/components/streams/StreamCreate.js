@@ -4,10 +4,6 @@ import { createStream } from '../../actions';
 import StreamForm from './StreamForm';
 
 class StreamCreate extends React.Component {
-  onSubmit = formValues => {
-    this.props.createStream(formValues);
-  };
-
   render() {
     return (
       <div>
@@ -16,6 +12,11 @@ class StreamCreate extends React.Component {
       </div>
     );
   }
+  
+  onSubmit = formValues => {
+    this.props.createStream(formValues);
+  };
+
 }
 
 export default connect(
