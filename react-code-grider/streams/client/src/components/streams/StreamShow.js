@@ -10,6 +10,22 @@ class StreamShow extends React.Component {
     this.videoRef = React.createRef();
   }
 
+  render() {
+    if (!this.props.stream) {
+      return <div>Loading...</div>;
+    }
+
+    const { title, description } = this.props.stream;
+
+    return (
+      <div>
+        <video ref={this.videoRef} style={{ width: '100%' }} controls />
+        <h1>{title}</h1>
+        <h5>{description}</h5>
+      </div>
+    );
+  }
+
   componentDidMount() {
     const { id } = this.props.match.params;
 
@@ -37,22 +53,6 @@ class StreamShow extends React.Component {
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
-  }
-
-  render() {
-    if (!this.props.stream) {
-      return <div>Loading...</div>;
-    }
-
-    const { title, description } = this.props.stream;
-
-    return (
-      <div>
-        <video ref={this.videoRef} style={{ width: '100%' }} controls />
-        <h1>{title}</h1>
-        <h5>{description}</h5>
-      </div>
-    );
   }
 }
 
