@@ -19,6 +19,10 @@ class StreamForm extends React.Component {
     );
   }
 
+  onSubmit = formValues => {
+    this.props.onSubmit(formValues);
+  };
+
   renderInput = ({ input, label, meta }) => {
     console.log(meta)
     const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
@@ -40,10 +44,6 @@ class StreamForm extends React.Component {
       );
     }
   }
-
-  onSubmit = formValues => {
-    this.props.onSubmit(formValues);
-  };
 
 }
 
